@@ -21,6 +21,7 @@ export const Text = styled.p`
 export const Icon = styled.img`
     width: 70%;
 `;
+
 export const Div = styled.div`
     display: flex;
     align-items: center;

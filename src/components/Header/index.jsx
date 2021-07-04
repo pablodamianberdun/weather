@@ -34,7 +34,7 @@ const Header = () => {
                     <ImageContainer>
                         <Image src={WeatherLogo} />
                     </ImageContainer>
-                    <Title>Weather App</Title>
+                    <Title>Weather</Title>
                 </Logo>
                 <SearchForm onSubmit={handleSearch}>
                     <Input
