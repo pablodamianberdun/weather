@@ -1,23 +1,23 @@
 import React from 'react'
-import getWeather from '../api/getWeather'
+import getCurrentWeather from '../api/getCurrentWeather'
 
 export const WeatherContext = React.createContext()
 
 const WeatherProvider = (props) => {
 	const [city, setCity] = React.useState("")
-	const [weather, setWeather] = React.useState({})
+	const [currentWeather, setCurrentWeather] = React.useState(null)
 
 	React.useEffect( () => {
 		if (city === "") return
-		getWeather(city)
-			.then(resp => setWeather(resp))
+		getCurrentWeather(city)
+			.then(resp => setCurrentWeather(resp))
 	}, [city])
 
 	return (
 		<WeatherContext.Provider
 			value={{
 				setCity,
-				weather
+				currentWeather
 			}}
 		>
 			{props.children}
