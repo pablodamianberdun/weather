@@ -45,7 +45,7 @@ export const Title = styled.h1`
     font-size: 30px;
 `;
 
-export const SearchContainer = styled.div``;
+export const SearchForm = styled.form``;
 
 export const Input = styled.input`
     height: 25px;

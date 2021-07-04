@@ -1,21 +1,23 @@
-import React, {createContext} from 'react'
+import React from 'react'
 import getWeather from '../api/getWeather'
 
-export const WeatherContext = createContext()
+export const WeatherContext = React.createContext()
 
 const WeatherProvider = (props) => {
 	const [city, setCity] = React.useState("")
+	const [weather, setWeather] = React.useState({})
 
 	React.useEffect( () => {
 		if (city === "") return
 		getWeather(city)
-			.then(resp => console.log(resp))
+			.then(resp => setWeather(resp))
 	}, [city])
 
 	return (
 		<WeatherContext.Provider
 			value={{
-				setCity
+				setCity,
+				weather
 			}}
 		>
 			{props.children}

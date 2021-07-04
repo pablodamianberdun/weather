@@ -6,7 +6,7 @@ import {
     ImageContainer,
     Image,
     Title,
-    SearchContainer,
+    SearchForm,
     Input,
     Button,
 } from "./styled";
@@ -21,7 +21,8 @@ const Header = () => {
         setSearch(e.target.value);
     };
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+		e.preventDefault()
         setCity(search);
         setSearch("");
     };
@@ -35,17 +36,17 @@ const Header = () => {
                     </ImageContainer>
                     <Title>Weather App</Title>
                 </Logo>
-                <SearchContainer>
+                <SearchForm onSubmit={handleSearch}>
                     <Input
                         type="text"
                         value={search}
                         placeholder="Search City"
                         onChange={handleChange}
                     />
-                    <Button type="button" onClick={handleSearch}>
+                    <Button type="submit">
                         Search
                     </Button>
-                </SearchContainer>
+                </SearchForm>
             </Container>
         </HeaderContainer>
     );
