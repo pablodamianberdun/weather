@@ -11,8 +11,21 @@ import {
     Button,
 } from "./styled";
 import WeatherLogo from "../../assets/images/logo.png";
+import { WeatherContext } from "../../context/weatherContext";
 
 const Header = () => {
+    const { setCity } = React.useContext(WeatherContext);
+    const [search, setSearch] = React.useState("");
+
+    const handleChange = (e) => {
+        setSearch(e.target.value);
+    };
+
+    const handleSearch = () => {
+        setCity(search);
+        setSearch("");
+    };
+
     return (
         <HeaderContainer>
             <Container>
@@ -23,8 +36,15 @@ const Header = () => {
                     <Title>Weather App</Title>
                 </Logo>
                 <SearchContainer>
-                    <Input type="text" placeholder="Search City" />
-                    <Button>Search</Button>
+                    <Input
+                        type="text"
+                        value={search}
+                        placeholder="Search City"
+                        onChange={handleChange}
+                    />
+                    <Button type="button" onClick={handleSearch}>
+                        Search
+                    </Button>
                 </SearchContainer>
             </Container>
         </HeaderContainer>
