@@ -6,7 +6,7 @@ export const Container = styled.div`
     justify-content: space-between;
     width: 90%;
     height: 210px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto;
     overflow-x: auto;
     overflow-y: hidden;
     color: white;
